@@ -4,6 +4,7 @@ import VinpollsLogo from "./img/VinpollsLogo.png";
 import Avatar from "./img/Avatar.png";
 import TKO from "./img/TKO.png";
 import Vin from "./img/Vin.png";
+import ImageDefault from "./img/ImageDefault.png";
 
 import Email from "./Icon/Email.svg";
 import Password from "./Icon/Password.svg";
@@ -61,6 +62,7 @@ export {
     Avatar,
     TKO,
     Vin,
+    ImageDefault,
 
     Email,
     Password,

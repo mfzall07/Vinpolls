@@ -1,10 +1,12 @@
-import React from "react";
-import {View, ScrollView, StyleSheet, Text, TouchableOpacity} from "react-native";
+import React, {useState} from "react";
+import {View, ScrollView, StyleSheet, Text, TouchableOpacity, Modal, Image, TextInput} from "react-native";
 import { StatusBar } from 'react-native';
-import { Badge, Bell, CheckBox, Coin, DailyQuest, DashboardBlue, Person, Referral, StakeAndEarn, StakingList, Tag, Union } from "../../assets";
+import { Badge, Bell, CheckBox, Coin, DailyQuest, DashboardBlue, ImageDefault, Person, Referral, StakeAndEarn, StakingList, Tag, Union } from "../../assets";
 import { Gap, NewsCard, SurveyCard } from "../../component";
 
 const Home = ({navigation}) => {
+    const [modalVisible, setmodalVisible] = useState(false);
+    const [modalVisibleSecond, setmodalVisibleSecond] = useState(false);
     return (
         <View style={styles.container}>
             <StatusBar barStyle = "default" hidden = {false} backgroundColor = "#166ED8" translucent = {true}/>
@@ -44,7 +46,7 @@ const Home = ({navigation}) => {
                 <View style={styles.MainPanel}>
                     <View style={styles.Panel}>
                         <View style={{ flexDirection: 'row', justifyContent: 'space-between', paddingHorizontal: 30 }}>
-                            <TouchableOpacity>
+                            <TouchableOpacity onPress = {()=>navigation.navigate('StakingListPages')}>
                                 <View style={{ alignItems: 'center' }}>
                                     <StakeAndEarn />
                                     <Text style={{ marginTop: 5, fontFamily: 'ProximaNova', fontSize: 13  }}>Stake & Earn</Text>
@@ -56,7 +58,7 @@ const Home = ({navigation}) => {
                                     <Text style={{ marginTop: 5, fontFamily: 'ProximaNova', fontSize: 13  }}>Referral</Text>
                                 </View>
                             </TouchableOpacity>
-                            <TouchableOpacity>
+                            <TouchableOpacity onPress = {()=>navigation.navigate('DailyQuestPages')}>
                                 <View style={{ alignItems: 'center' }}>
                                     <DailyQuest />
                                     <Text style={{ marginTop: 5, fontFamily: 'ProximaNova', fontSize: 13  }}>Daily Quest</Text>
@@ -72,7 +74,7 @@ const Home = ({navigation}) => {
                         <Text style ={{ flexBasis: 200 }}>
                             Vintoken 50,000, earn more Token by stake and doing polls
                         </Text>
-                        <TouchableOpacity style={{ width: 55, height: 30, backgroundColor: '#166ED8', justifyContent: 'center', alignItems:'center', borderRadius: 4 }}>
+                        <TouchableOpacity style={{ width: 55, height: 30, backgroundColor: '#166ED8', justifyContent: 'center', alignItems:'center', borderRadius: 4 }} onPress={()=>setmodalVisible(!modalVisible)}>
                             <Text style={{ color: 'white' }}>Claim</Text>
                         </TouchableOpacity>
                     </View>
@@ -96,18 +98,18 @@ const Home = ({navigation}) => {
                     </ScrollView>
                 </View>
 
-                <View>
-                    <View style={{ paddingHorizontal: 20, flexDirection: 'row', justifyContent: 'space-between', marginTop: 30 }}>
-                        <Text style={{ fontSize: 18, fontWeight: '700', color: '#1F2432' }}>Join Exclusive Survey For You</Text>
-                        <TouchableOpacity  onPress = {()=>navigation.navigate('StakingListPages')}>
-                            <Text style={{ color: '#166ED8' }}>See All</Text>
-                        </TouchableOpacity>
-                    </View>
-                    <View style={{ height: 150, paddingHorizontal: 5, flexWrap: 'wrap', alignContent: 'space-between', marginTop: 20 }}>
+                <View style={{ paddingHorizontal: 20, flexDirection: 'row', justifyContent: 'space-between', marginTop: 30 }}>
+                    <Text style={{ fontSize: 18, fontWeight: '700', color: '#1F2432' }}>Join Exclusive Survey For You</Text>
+                    <TouchableOpacity  onPress = {()=>navigation.navigate('StakingListPages')}>
+                        <Text style={{ color: '#166ED8' }}>See All</Text>
+                    </TouchableOpacity>
+                </View>
+                <View style={{ alignItems: 'center', paddingHorizontal: 16}}>
+                    <View style={{ width: '100%', height: 150, flexWrap: 'wrap', alignContent: 'space-between', marginHorizontal: 16, marginVertical: 10 }}>
                         <SurveyCard />
                         <SurveyCard />
                     </View>
-                    <View style={{ height: 150, paddingHorizontal: 5, flexWrap: 'wrap', alignContent: 'space-between', marginTop: 10 }}>
+                    <View style={{ width: '100%', height: 150, flexWrap: 'wrap', alignContent: 'space-between', marginHorizontal: 16, marginVertical: 10 }}>
                         <SurveyCard />
                         <SurveyCard />
                     </View>
@@ -145,6 +147,48 @@ const Home = ({navigation}) => {
                     <Text>Account</Text>
                 </TouchableOpacity>
             </View>
+            <Modal
+                animationType="slide"
+                transparent={true}
+                visible={modalVisible}
+                onRequestClose={() => {
+                    setmodalVisible(!modalVisible);
+                }}
+            >
+                <View style={styles.mainModal}>
+                    <View style={styles.subModal}>
+                        <View style={{ width: 48, height: 4, backgroundColor: '#E6E9ED' }}/>
+                        <Image source={ImageDefault} />
+                        <View>
+                            <Text style={{ paddingHorizontal: 8, textAlign: 'center' }}>Enter the amount and send your rewards to your crypto wallet.</Text>
+                            <Gap height={10} />
+                            <TextInput placeholder="Enter Amount" style={{ borderWidth: 1, borderColor: '#A1AEB7', borderRadius: 4}} />
+                        </View>
+                        <TouchableOpacity style={{ width: '100%', paddingVertical: 13, backgroundColor: '#166ED8', borderRadius: 4, alignItems: 'center' }} onPress={()=>setmodalVisibleSecond(!modalVisibleSecond)}>
+                            <Text style={{ color:'#fff', fontSize: 18 }}>Claim to my wallet</Text>
+                        </TouchableOpacity>
+                    </View>
+                </View>
+            </Modal>
+            <Modal
+                animationType="slide"
+                transparent={true}
+                visible={modalVisibleSecond}
+                onRequestClose={() => {
+                    setmodalVisibleSecond(!modalVisibleSecond);
+                }}
+            >
+                <View style={styles.mainModalSecond}>
+                    <View style={styles.subModal}>
+                        <View style={{ width: 48, height: 4, backgroundColor: '#E6E9ED' }}/>
+                        <Image source={ImageDefault} />
+                        <Text style={{ paddingHorizontal: 8, textAlign: 'center' }}>Your withdrawal request has been successfully proceed to your wallet.</Text>
+                        <TouchableOpacity style={{ width: '100%', paddingVertical: 13, backgroundColor: '#166ED8', borderRadius: 4, alignItems: 'center' }}  onPress = {()=>navigation.navigate('RewardsHistory')}>
+                            <Text style={{ color:'#fff', fontSize: 18 }}>Go to history</Text>
+                        </TouchableOpacity>
+                    </View>
+                </View>
+            </Modal>
         </View>
     );
 };
@@ -201,6 +245,25 @@ const styles = StyleSheet.create({
         shadowRadius: 3.84,
         elevation: 5,
         justifyContent: 'center',
+    },
+    mainModal: {
+        backgroundColor: 'rgba(0, 0, 0, 0.7)',
+        justifyContent: "flex-end",
+        flex: 1,
+    },
+    mainModalSecond: {
+        justifyContent: "flex-end",
+        flex: 1,
+    },
+    subModal: {
+        backgroundColor: '#fff',
+        height: 350,
+        paddingHorizontal: 16,
+        paddingVertical: 16,
+        borderTopRightRadius: 24,
+        borderTopLeftRadius: 24,
+        alignItems: 'center',
+        justifyContent: 'space-around'
     },
     BottomMenu: {
         height: 60, 
