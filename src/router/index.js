@@ -1,25 +1,33 @@
 import React from 'react';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { OnBoarding, Login, Register, Authentication, Home, Account, DailyQuestPages, DailyQuestHistory, StakingListPages, StakingDetail, StakingQuestion, ReferralPages, RewardsHistory} from '../pages';
+import { CardStyleInterpolators } from '@react-navigation/stack';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import 'react-native-gesture-handler';
 
 const Stack = createNativeStackNavigator();
 
 const Router = () => {
+
     return(
-        <Stack.Navigator>
-            <Stack.Screen name="OnBoarding" component={OnBoarding} options = {{ headerShown: false }} />
-            <Stack.Screen name="Login" component={Login} options = {{ headerShown: false }} />
-            <Stack.Screen name="Register" component={Register} options = {{ headerShown: false }} />
-            <Stack.Screen name="Authentication" component={Authentication} options = {{ headerShown: false }} />
-            <Stack.Screen name="Home" component={Home} options = {{ headerShown: false }} />
-            <Stack.Screen name="Account" component={Account} options = {{ headerShown: false }} />
-            <Stack.Screen name="DailyQuestPages" component={DailyQuestPages} options = {{ headerShown: false }} />
-            <Stack.Screen name="DailyQuestHistory" component={DailyQuestHistory} options = {{ headerShown: false }} />
-            <Stack.Screen name="StakingListPages" component={StakingListPages} options = {{ headerShown: false }} />
-            <Stack.Screen name="StakingDetail" component={StakingDetail} options = {{ headerShown: false }} />
-            <Stack.Screen name="StakingQuestion" component={StakingQuestion} options = {{ headerShown: false }} />
-            <Stack.Screen name="ReferralPages" component={ReferralPages} options = {{ headerShown: false }} />
-            <Stack.Screen name="RewardsHistory" component={RewardsHistory} options = {{ headerShown: false }} />
+        <Stack.Navigator
+            screenOptions={{
+                headerShown: false, 
+                animation: 'slide_from_right',
+            }}
+        >
+            <Stack.Screen name="OnBoarding" component={OnBoarding} />
+            <Stack.Screen name="Login" component={Login} />
+            <Stack.Screen name="Register" component={Register} />
+            <Stack.Screen name="Authentication" component={Authentication} />
+            <Stack.Screen name="Home" component={Home} />
+            <Stack.Screen name="Account" component={Account} />
+            <Stack.Screen name="DailyQuestPages" component={DailyQuestPages} />
+            <Stack.Screen name="DailyQuestHistory" component={DailyQuestHistory} />
+            <Stack.Screen name="StakingListPages" component={StakingListPages} />
+            <Stack.Screen name="StakingDetail" component={StakingDetail} />
+            <Stack.Screen name="StakingQuestion" component={StakingQuestion} />
+            <Stack.Screen name="ReferralPages" component={ReferralPages} />
+            <Stack.Screen name="RewardsHistory" component={RewardsHistory} />
 
         </Stack.Navigator>
     );

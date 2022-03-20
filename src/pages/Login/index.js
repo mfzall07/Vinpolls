@@ -3,6 +3,7 @@ import {View, Image, StyleSheet, Text, TouchableOpacity} from "react-native";
 import { StatusBar } from 'react-native';
 import { VinpollsLogo } from '../../assets';
 import { Gap, Input } from "../../component";
+import { colors } from "../../utils";
 
 const Login = ({navigation}) => {
  return (
@@ -16,7 +17,7 @@ const Login = ({navigation}) => {
         <Input placeholder='Email'/>
         <Input placeholder='Password' type='eye'/>
         <View style={styles.forget}>
-            <Text>Forget password?</Text>
+            <Text style={{ color: colors.TextGray }}>Forget password?</Text>
             <TouchableOpacity>            
                 <Text style={styles.linkForget}> Click here</Text>
             </TouchableOpacity>
@@ -26,7 +27,7 @@ const Login = ({navigation}) => {
             <Text style = { styles.Textlogin }>Login</Text>
         </TouchableOpacity>
         <View style={styles.register}>
-            <Text>Don't have account?</Text>
+            <Text style={{ color: colors.TextGray }}>Don't have account?</Text>
             <TouchableOpacity>
                 <Text style={styles.linkRegister} onPress = {()=>navigation.navigate('Register')}> Click here</Text>
             </TouchableOpacity>
@@ -97,7 +98,7 @@ const styles = StyleSheet.create({
         fontSize: 12,
     },
     TextDarkWarning: {
-        color: '#868C96'
+        color: colors.TextGray
     }
 
   });

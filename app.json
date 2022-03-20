@@ -1,4 +1,7 @@
 {
   "name": "VinProtocol",
-  "displayName": "VinProtocol"
+  "displayName": "VinProtocol",
+  "expo": {
+    "userInterfaceStyle": "automatic"
+  }
 }

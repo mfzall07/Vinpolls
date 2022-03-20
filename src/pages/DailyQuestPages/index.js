@@ -3,6 +3,7 @@ import {View, ScrollView, StyleSheet, Text, TouchableOpacity, TextInput} from "r
 import { StatusBar } from 'react-native';
 import { ArrowRight, CheckBox, Dashboard, HistoryClock, Person, Search, StakingList, UnionBlue, VinpollsIconColor } from "../../assets";
 import { Input } from "../../component";
+import { colors } from "../../utils";
 
 const DailyQuestPages = ({navigation}) => {
     return (
@@ -21,7 +22,7 @@ const DailyQuestPages = ({navigation}) => {
                     </View>
                 </View>
                 <View style={styles.Searching}>
-                    <TextInput style={styles.input} placeholder='Search Stake' />
+                    <TextInput style={styles.input} placeholder='Search Stake' placeholderTextColor={colors.TextGray} />
                     <View style={styles.icon}>
                         <Search />
                     </View>
@@ -35,7 +36,7 @@ const DailyQuestPages = ({navigation}) => {
                         <View style={{ width: '70%', height: '100%', borderTopLeftRadius: 8, borderBottomLeftRadius: 8, justifyContent: 'space-between', alignItems: 'center', flexDirection: 'row' }}>
                             <View>
                                 <Text style={{ fontSize: 18, fontFamily: 'ProximaNova', fontWeight: '700', color: '#1F2432' }}>Follow twitter</Text>
-                                <Text style={{ fontSize: 14, fontFamily: 'ProximaNova' }}>Start follow @tokocrypto official account and get 100 VIN</Text>
+                                <Text style={{ fontSize: 14, fontFamily: 'ProximaNova', color: colors.TextGray }}>Start follow @tokocrypto official account and get 100 VIN</Text>
                             </View>
                             <ArrowRight />
                         </View>
@@ -51,7 +52,7 @@ const DailyQuestPages = ({navigation}) => {
                         <View style={{ width: '70%', height: '100%', borderTopLeftRadius: 8, borderBottomLeftRadius: 8, justifyContent: 'space-between', alignItems: 'center', flexDirection: 'row' }}>
                             <View>
                                 <Text style={{ fontSize: 18, fontFamily: 'ProximaNova', fontWeight: '700', color: '#1F2432' }}>Follow twitter</Text>
-                                <Text style={{ fontSize: 14, fontFamily: 'ProximaNova' }}>Start follow @tokocrypto official account and get 100 VIN</Text>
+                                <Text style={{ fontSize: 14, fontFamily: 'ProximaNova', color: colors.TextGray }}>Start follow @tokocrypto official account and get 100 VIN</Text>
                             </View>
                             <ArrowRight />
                         </View>
@@ -67,7 +68,7 @@ const DailyQuestPages = ({navigation}) => {
                         <View style={{ width: '70%', height: '100%', borderTopLeftRadius: 8, borderBottomLeftRadius: 8, justifyContent: 'space-between', alignItems: 'center', flexDirection: 'row' }}>
                             <View>
                                 <Text style={{ fontSize: 18, fontFamily: 'ProximaNova', fontWeight: '700', color: '#1F2432' }}>Follow twitter</Text>
-                                <Text style={{ fontSize: 14, fontFamily: 'ProximaNova' }}>Start follow @tokocrypto official account and get 100 VIN</Text>
+                                <Text style={{ fontSize: 14, fontFamily: 'ProximaNova', color: colors.TextGray }}>Start follow @tokocrypto official account and get 100 VIN</Text>
                             </View>
                             <ArrowRight />
                         </View>
@@ -83,7 +84,7 @@ const DailyQuestPages = ({navigation}) => {
                         <View style={{ width: '70%', height: '100%', borderTopLeftRadius: 8, borderBottomLeftRadius: 8, justifyContent: 'space-between', alignItems: 'center', flexDirection: 'row' }}>
                             <View>
                                 <Text style={{ fontSize: 18, fontFamily: 'ProximaNova', fontWeight: '700', color: '#1F2432' }}>Follow twitter</Text>
-                                <Text style={{ fontSize: 14, fontFamily: 'ProximaNova' }}>Start follow @tokocrypto official account and get 100 VIN</Text>
+                                <Text style={{ fontSize: 14, fontFamily: 'ProximaNova', color: colors.TextGray }}>Start follow @tokocrypto official account and get 100 VIN</Text>
                             </View>
                             <ArrowRight />
                         </View>
@@ -99,13 +100,14 @@ const DailyQuestPages = ({navigation}) => {
                         <View style={{ width: '70%', height: '100%', borderTopLeftRadius: 8, borderBottomLeftRadius: 8, justifyContent: 'space-between', alignItems: 'center', flexDirection: 'row' }}>
                             <View>
                                 <Text style={{ fontSize: 18, fontFamily: 'ProximaNova', fontWeight: '700', color: '#1F2432' }}>Follow twitter</Text>
-                                <Text style={{ fontSize: 14, fontFamily: 'ProximaNova' }}>Start follow @tokocrypto official account and get 100 VIN</Text>
+                                <Text style={{ fontSize: 14, fontFamily: 'ProximaNova', color: colors.TextGray }}>Start follow @tokocrypto official account and get 100 VIN</Text>
                             </View>
                             <ArrowRight />
                         </View>
                         <View/>
                     </View>
                 </View>
+                
                 
 
 
@@ -113,14 +115,14 @@ const DailyQuestPages = ({navigation}) => {
             </ScrollView>
             
             <View style={styles.BottomMenu}>
-                <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center', flexBasis: 50 }} onPress = {()=>navigation.navigate('Home')}>
+                <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center', flexBasis: 35 }} onPress = {()=>navigation.navigate('Home')}>
                     <Dashboard />
-                    <Text>Home</Text>
+                    <Text style={{ fontSize: 12, color: colors.TextGray }}>Home</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center' }} onPress = {()=>navigation.navigate('StakingListPages')}>
+                <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center', flexBasis: 75}} onPress = {()=>navigation.navigate('StakingListPages')}>
                     <StakingList />
-                    <Text>Staking List</Text>
+                    <Text style={{ fontSize: 12, color: colors.TextGray}}>Staking List</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center', bottom: 15 }} onPress = {()=>navigation.navigate('Vote')}>
@@ -128,18 +130,17 @@ const DailyQuestPages = ({navigation}) => {
                     <View style={{ width: 42, height: 42, backgroundColor: '#166ED8', borderRadius: 50, justifyContent: 'center', alignItems: 'center', position: 'absolute', bottom: 10}}>
                         <CheckBox />
                     </View>
-                    <Text style={{ top: 43.5, position: 'absolute'}}>Vote</Text>
-
+                    <Text style={{ top: 44, position: 'absolute', fontSize: 13, color: colors.TextGray }}>Vote</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center', flexBasis: 75, borderTopWidth: 1, width: '100%', height: 60, borderTopColor: '#166ED8' }} onPress = {()=>navigation.navigate('DailyQuestPages')}>
+                <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center', borderTopWidth: 1, height: '100%', borderTopColor: '#166ED8'}} onPress = {()=>navigation.navigate('DailyQuestPages')}>
                     <UnionBlue />
-                    <Text style={{ color: '#166ED8', top: 3 }}>Daily Quest</Text>
+                    <Text style={{ top: 3, fontSize: 12, color: '#166ED8' }}>Daily Quest</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center' }} onPress = {()=>navigation.navigate('Account')}>
                     <Person />
-                    <Text>Account</Text>
+                    <Text style={{ fontSize: 12, color: colors.TextGray }}>Account</Text>
                 </TouchableOpacity>
             </View>
         </View>
@@ -217,7 +218,7 @@ const styles = StyleSheet.create({
 
     },  
     BottomMenu: {
-        height: 60, 
+        height: 70, 
         flexDirection: 'row', 
         paddingHorizontal: 20, 
         justifyContent: 'space-between', 

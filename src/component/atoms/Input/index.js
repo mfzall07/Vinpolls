@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import {View, TextInput, StyleSheet} from "react-native";
 import { Calender, Email, Password, People, Search } from "../../../assets";
+import { colors } from "../../../utils";
 import InputEye from './InputEye';
 
 const Input = ({placeholder, type}) => {
@@ -21,7 +22,7 @@ const Input = ({placeholder, type}) => {
 
     return (
         <View>
-            <TextInput style={styles.input(borderColor)} placeholder={placeholder} onFocus={onFocus} onBlur={onBlur}/>
+            <TextInput style={styles.input(borderColor)} placeholderTextColor={colors.TextGray} placeholder={placeholder} onFocus={onFocus} onBlur={onBlur}/>
             <View style={styles.icon}>
                 {placeholder==='Email' && <Email/>}
                 {placeholder==='Password' && <Password/>}
@@ -40,7 +41,7 @@ const styles = StyleSheet.create({
         borderRadius: 4,
         borderColor: borderColor,
         fontWeight: "400",
-        fontSize: 16,
+        fontSize: 14,
         paddingLeft: 50,
         position: "relative",
     }),

@@ -11,7 +11,7 @@ const ReferralPages = ({navigation}) => {
                 
                 <View style={styles.Header}>
                     <View style={styles.FirstHeader}>
-                        <TouchableOpacity onPress = {()=>navigation.navigate('DailyQuestPages')}>
+                        <TouchableOpacity onPress = {()=>navigation.goBack()}>
                             <ArrowLeft />
                         </TouchableOpacity>
                         <Text style={{ fontSize: 16, color: 'white', fontFamily: 'ProximaNova', letterSpacing: 1, marginLeft: 10, fontWeight: '700' }}>

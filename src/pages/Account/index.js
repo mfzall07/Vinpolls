@@ -3,6 +3,7 @@ import {View, ScrollView, StyleSheet, Text, TouchableOpacity, Image} from "react
 import { StatusBar } from 'react-native';
 import { ArrowRight, Avatar, BadgeGray, ChangePwd, CheckBox, ClaimHistory, CoinGray, DailyQuest, Dashboard, DQHistory, Faq, PersonBlue, ProfileInfo, ReferralHistory, SignOut, StakingHistory, StakingList, SurveinAccount, SurveyHistory, Terms, Union } from "../../assets";
 import { Gap } from "../../component";
+import { colors } from "../../utils";
 
 const Account = ({navigation}) => {
     return (
@@ -23,14 +24,14 @@ const Account = ({navigation}) => {
                         <View style={styles.SecondHeaderSub}>
                             <View style={{ flexDirection: 'row'}}>
                                 <CoinGray />
-                                <Text style={{ marginLeft: 5, marginRight: 5, fontSize: 12, marginTop: 2, fontFamily: 'ProximaNova' }}>
+                                <Text style={{ marginLeft: 5, marginRight: 5, fontSize: 12, marginTop: 2, fontFamily: 'ProximaNova', color: colors.TextGray }}>
                                     50.000 VIN
                                 </Text>
                             </View>
                             <View style={{ marginHorizontal:10, width: 5, height: 5, backgroundColor: '#FFBB00', borderRadius: 150 }}/>
                             <View style={{ flexDirection: 'row'}}>
                                 <BadgeGray />
-                                <Text style={{ marginLeft: 5, fontSize: 12, marginTop: 2, fontFamily: 'ProximaNova' }}>
+                                <Text style={{ marginLeft: 5, fontSize: 12, marginTop: 2, fontFamily: 'ProximaNova', color: colors.TextGray }}>
                                     Level 10
                                 </Text>
                             </View>
@@ -43,7 +44,7 @@ const Account = ({navigation}) => {
                         <ProfileInfo />
                     </View>
                     <TouchableOpacity style={{ width: '80%', height: '100%', flexDirection: 'row', justifyContent: 'space-between', borderBottomWidth: 1, borderBottomColor: '#EBEDF0', alignItems: 'center' }}>
-                        <Text style={{ fontSize: 16 }}>Profile Information</Text>
+                        <Text style={{ fontSize: 16, color: colors.TextGray }}>Profile Information</Text>
                         <ArrowRight />
                     </TouchableOpacity>
                 </View>
@@ -52,7 +53,7 @@ const Account = ({navigation}) => {
                         <ChangePwd />
                     </View>
                     <TouchableOpacity style={{ width: '80%', height: '100%', flexDirection: 'row', justifyContent: 'space-between', borderBottomWidth: 1, borderBottomColor: '#EBEDF0', alignItems: 'center' }}>
-                        <Text style={{ fontSize: 16 }}>Change Password</Text>
+                        <Text style={{ fontSize: 16, color: colors.TextGray }}>Change Password</Text>
                         <ArrowRight />
                     </TouchableOpacity>
                 </View>
@@ -65,7 +66,7 @@ const Account = ({navigation}) => {
                         <SurveyHistory />
                     </View>
                     <TouchableOpacity style={{ width: '80%', height: '100%', flexDirection: 'row', justifyContent: 'space-between', borderBottomWidth: 1, borderBottomColor: '#EBEDF0', alignItems: 'center' }}>
-                        <Text style={{ fontSize: 16 }}>Survey History</Text>
+                        <Text style={{ fontSize: 16, color: colors.TextGray }}>Survey History</Text>
                         <ArrowRight />
                     </TouchableOpacity>
                 </View>
@@ -74,7 +75,7 @@ const Account = ({navigation}) => {
                         <StakingHistory />
                     </View>
                     <TouchableOpacity style={{ width: '80%', height: '100%', flexDirection: 'row', justifyContent: 'space-between', borderBottomWidth: 1, borderBottomColor: '#EBEDF0', alignItems: 'center' }}>
-                        <Text style={{ fontSize: 16 }}>Staking History</Text>
+                        <Text style={{ fontSize: 16, color: colors.TextGray }}>Staking History</Text>
                         <ArrowRight />
                     </TouchableOpacity>
                 </View>
@@ -83,7 +84,7 @@ const Account = ({navigation}) => {
                         <DQHistory />
                     </View>
                     <TouchableOpacity style={{ width: '80%', height: '100%', flexDirection: 'row', justifyContent: 'space-between', borderBottomWidth: 1, borderBottomColor: '#EBEDF0', alignItems: 'center' }} onPress = {()=>navigation.navigate('DailyQuestHistory')}>
-                        <Text style={{ fontSize: 16 }}>Daily Quest History</Text>
+                        <Text style={{ fontSize: 16, color: colors.TextGray }}>Daily Quest History</Text>
                         <ArrowRight />
                     </TouchableOpacity>
                 </View>
@@ -92,7 +93,7 @@ const Account = ({navigation}) => {
                         <ReferralHistory />
                     </View>
                     <TouchableOpacity style={{ width: '80%', height: '100%', flexDirection: 'row', justifyContent: 'space-between', borderBottomWidth: 1, borderBottomColor: '#EBEDF0', alignItems: 'center' }}>
-                        <Text style={{ fontSize: 16 }}>Referral History</Text>
+                        <Text style={{ fontSize: 16, color: colors.TextGray }}>Referral History</Text>
                         <ArrowRight />
                     </TouchableOpacity>
                 </View>
@@ -101,7 +102,7 @@ const Account = ({navigation}) => {
                         <ClaimHistory />
                     </View>
                     <TouchableOpacity style={{ width: '80%', height: '100%', flexDirection: 'row', justifyContent: 'space-between', borderBottomWidth: 1, borderBottomColor: '#EBEDF0', alignItems: 'center' }} onPress = {()=>navigation.navigate('RewardsHistory')}>
-                        <Text style={{ fontSize: 16 }}>Claim History</Text>
+                        <Text style={{ fontSize: 16, color: colors.TextGray }}>Claim History</Text>
                         <ArrowRight />
                     </TouchableOpacity>
                 </View>
@@ -114,7 +115,7 @@ const Account = ({navigation}) => {
                         <SurveinAccount />
                     </View>
                     <TouchableOpacity style={{ width: '80%', height: '100%', flexDirection: 'row', justifyContent: 'space-between', borderBottomWidth: 1, borderBottomColor: '#EBEDF0', alignItems: 'center' }}>
-                        <Text style={{ fontSize: 16 }}>Survein</Text>
+                        <Text style={{ fontSize: 16, color: colors.TextGray }}>Survein</Text>
                         <ArrowRight />
                     </TouchableOpacity>
                 </View>
@@ -123,7 +124,7 @@ const Account = ({navigation}) => {
                         <Terms />
                     </View>
                     <TouchableOpacity style={{ width: '80%', height: '100%', flexDirection: 'row', justifyContent: 'space-between', borderBottomWidth: 1, borderBottomColor: '#EBEDF0', alignItems: 'center' }}>
-                        <Text style={{ fontSize: 16 }}>Terms and Condition</Text>
+                        <Text style={{ fontSize: 16, color: colors.TextGray }}>Terms and Condition</Text>
                         <ArrowRight />
                     </TouchableOpacity>
                 </View>
@@ -132,7 +133,7 @@ const Account = ({navigation}) => {
                         <Faq />
                     </View>
                     <TouchableOpacity style={{ width: '80%', height: '100%', flexDirection: 'row', justifyContent: 'space-between', borderBottomWidth: 1, borderBottomColor: '#EBEDF0', alignItems: 'center' }}>
-                        <Text style={{ fontSize: 16 }}>FAQ</Text>
+                        <Text style={{ fontSize: 16, color: colors.TextGray }}>FAQ</Text>
                         <ArrowRight />
                     </TouchableOpacity>
                 </View>
@@ -141,21 +142,21 @@ const Account = ({navigation}) => {
                         <SignOut />
                     </View>
                     <TouchableOpacity style={{ width: '80%', height: '100%', flexDirection: 'row', justifyContent: 'space-between', borderBottomWidth: 1, borderBottomColor: '#EBEDF0', alignItems: 'center' }}>
-                        <Text style={{ fontSize: 16 }}>Sign Out</Text>
+                        <Text style={{ fontSize: 16, color: colors.TextGray }}>Sign Out</Text>
                         <ArrowRight />
                     </TouchableOpacity>
                 </View>
             </ScrollView>
 
             <View style={styles.BottomMenu}>
-                <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center', flexBasis: 50 }} onPress = {()=>navigation.navigate('Home')}>
+                <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center', flexBasis: 35 }} onPress = {()=>navigation.navigate('Home')}>
                     <Dashboard />
-                    <Text>Home</Text>
+                    <Text style={{ fontSize: 12, color: colors.TextGray }}>Home</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center' }} onPress = {()=>navigation.navigate('StakingListPages')}>
+                <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center', flexBasis: 75}} onPress = {()=>navigation.navigate('StakingListPages')}>
                     <StakingList />
-                    <Text>Staking List</Text>
+                    <Text style={{ fontSize: 12, color: colors.TextGray }}>Staking List</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center', bottom: 15 }} onPress = {()=>navigation.navigate('Vote')}>
@@ -163,18 +164,17 @@ const Account = ({navigation}) => {
                     <View style={{ width: 42, height: 42, backgroundColor: '#166ED8', borderRadius: 50, justifyContent: 'center', alignItems: 'center', position: 'absolute', bottom: 10}}>
                         <CheckBox />
                     </View>
-                    <Text style={{ top: 43.5, position: 'absolute'}}>Vote</Text>
-
+                    <Text style={{ top: 44, position: 'absolute', fontSize: 13, color: colors.TextGray }}>Vote</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center' }} onPress = {()=>navigation.navigate('DailyQuestPages')}>
                     <Union />
-                    <Text style={{ top: 3 }}>Daily Quest</Text>
+                    <Text style={{ top: 3, fontSize: 12, color: colors.TextGray }}>Daily Quest</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center', flexBasis: 53, borderTopWidth: 1, width: '100%', height: 60, borderTopColor: '#166ED8' }} onPress = {()=>navigation.navigate('Account')}>
+                <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center', borderTopWidth: 1, height: '100%', borderTopColor: '#166ED8' }} onPress = {()=>navigation.navigate('Account')}>
                     <PersonBlue />
-                    <Text style={{ color: '#166ED8' }}>Account</Text>
+                    <Text style={{ fontSize: 12, color: '#166ED8' }}>Account</Text>
                 </TouchableOpacity>
             </View>
         </View>
@@ -208,7 +208,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     BottomMenu: {
-        height: 60, 
+        height: 70, 
         flexDirection: 'row', 
         paddingHorizontal: 20, 
         justifyContent: 'space-between', 

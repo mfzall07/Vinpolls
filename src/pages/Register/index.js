@@ -1,14 +1,34 @@
-import React from "react";
+import React, {useState} from "react";
 import SelectDropdown from 'react-native-select-dropdown';
 import { StatusBar } from 'react-native';
 import {View, ScrollView, Image, StyleSheet, Text, TouchableOpacity} from "react-native"
-import { Gender, Geo, VinpollsLogo } from '../../assets';
+import { Calender, Gender, Geo, VinpollsLogo } from '../../assets';
+import DateTimePickerModal from "react-native-modal-datetime-picker";
 import { Gap, Input } from "../../component";
+import { colors } from "../../utils";
+import Moment from 'moment';
 
 const Register = ({navigation}) => {
     
  const gender = ["Male", "Female"]
  const province = ["Jawa Tengah", "Jawa Timur", "Jawa Barat"]
+
+ const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
+ const [startDate, setStartDate] = useState('');
+
+ const showDatePicker = () => {
+    setDatePickerVisibility(true);
+ };
+
+ const hideDatePicker = () => {
+    setDatePickerVisibility(false);
+ };
+
+ const handleConfirm = (date) => {
+    Moment.locale('en');
+    setStartDate(date);
+    hideDatePicker();
+ };
     
  return (
     <View style={styles.container}>
@@ -20,13 +40,25 @@ const Register = ({navigation}) => {
             </View>
             <View>
                 <Gap height={60}/>
-                <Input placeholder='Full Name'/>
+                <Input placeholder='Full Name' />
                 <Gap height={20}/>
                 <Input placeholder='Email'/>
                 <Gap height={20}/>
                 <Input placeholder='Password' type='eye'/>
                 <Gap height={20}/>
-                <Input placeholder='Birthdate'/>
+
+                <View>
+                    <TouchableOpacity style={{ borderWidth: 1, paddingVertical: 10, paddingHorizontal: 10, alignItems: 'center', borderColor: '#A1AEB7', borderRadius: 4, flexDirection: 'row' }} onPress={showDatePicker}>
+                        <Calender />
+                        <Text style={{ color: colors.TextGray, paddingLeft: 15 }}>{startDate === '' ? 'DD MM YYYY' : Moment(startDate).format('DD MMM YYYY')}</Text>
+                    </TouchableOpacity>
+                    <DateTimePickerModal
+                        isVisible={isDatePickerVisible}
+                        mode="date"
+                        onConfirm={handleConfirm}
+                        onCancel={hideDatePicker}
+                    />
+                </View>
                 <Gap height={20}/>
 
                 <SelectDropdown
@@ -86,7 +118,7 @@ const Register = ({navigation}) => {
             </View>
 
             <View style={styles.register}>
-                <Text>Already have account?</Text>
+                <Text style={{ color: colors.TextGray }}>Already have account?</Text>
                 <TouchableOpacity>
                     <Text style={styles.linkRegister} onPress = {()=>navigation.navigate('Login')}> Login here</Text>
                 </TouchableOpacity>
@@ -169,6 +201,7 @@ const styles = StyleSheet.create({
         fontSize: 16,
         paddingLeft: 50,
         position: "relative",
+        color: colors.TextGray
     },
     icon: {
         position: "absolute",
@@ -182,9 +215,10 @@ const styles = StyleSheet.create({
         borderRadius: 4,
         borderWidth: 1,
         borderColor: "#A1AEB7",
+        color: colors.TextGray
       },
       dropdown1BtnTxtStyle: { 
-        color: '#868C96',
+        color: colors.TextGray,
         fontWeight: "400",
         fontSize: 14,
         textAlign: "left",
@@ -194,7 +228,7 @@ const styles = StyleSheet.create({
         backgroundColor: "white" 
       },
       dropdown1RowTxtStyle: { 
-        color: "#444",
+        color: colors.TextGray,
         textAlign: "left" 
       },
 

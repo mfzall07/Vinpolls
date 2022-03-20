@@ -15,6 +15,7 @@ import {
 import { SlideOne } from '../../assets';
 import { SlideTwo } from '../../assets';
 import { SlideTrhee } from '../../assets';
+import { colors } from '../../utils';
   
   const {width, height} = Dimensions.get('window');
   
@@ -129,15 +130,17 @@ import { SlideTrhee } from '../../assets';
   
   const styles = StyleSheet.create({
     subtitle: {
-      color: '#5E6674',
+      color: colors.TextBlack,
       fontSize: 13,
       marginTop: 5,
       maxWidth: '70%',
       textAlign: 'center',
+      justifyContent: 'center',
+      alignItems:'center',
       lineHeight: 23,
     },
     title: {
-      color: '#1F2432',
+      color: colors.TextBlack,
       fontSize: 22,
       fontWeight: 'bold',
       marginTop: 10,
@@ -164,7 +167,7 @@ import { SlideTrhee } from '../../assets';
       alignItems: 'center',
     },
     Textlogin: {
-        color:'#fff',
+        color: colors.white,
     },
     register: {
         height: 50,

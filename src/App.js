@@ -8,7 +8,6 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import Router from './router';
-
 import SplashScreen from 'react-native-splash-screen'
 import { useEffect } from 'react';
 

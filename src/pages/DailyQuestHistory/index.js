@@ -1,9 +1,47 @@
-import React from "react";
-import {View, ScrollView, StyleSheet, Text, TouchableOpacity, TextInput} from "react-native";
+import React, {useState} from "react";
 import { StatusBar } from 'react-native';
-import { ArrowLeft, VinpollsIconColor } from "../../assets";
+import DateTimePickerModal from "react-native-modal-datetime-picker";
+import Moment from 'moment';
+import {View, ScrollView, StyleSheet, Text, TouchableOpacity, Button} from "react-native";
+import { ArrowLeft, Calender, VinpollsIconColor } from "../../assets";
+import { Gap } from "../../component";
+import { colors } from "../../utils";
 
 const DailyQuestHistory = ({navigation}) => {
+    const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
+    const [startDate, setStartDate] = useState('');
+    const [endDate, setEndDate] = useState('');
+
+    const showDatePicker = () => {
+        setDatePickerVisibility(true);
+    };
+
+    const hideDatePicker = () => {
+        setDatePickerVisibility(false);
+    };
+
+    const handleConfirm = (date) => {
+        Moment.locale('en');
+        setStartDate(date);
+        hideDatePicker();
+    };
+
+    //------------------------------------
+
+    const showDatePickers = () => {
+        setDatePickerVisibility(true);
+    };
+
+    const hideDatePickers = () => {
+        setDatePickerVisibility(false);
+    };
+
+    const handleConfirms = (date) => {
+        Moment.locale('en');
+        setEndDate(date);
+        hideDatePicker();
+    };
+
     return (
         <View style={styles.container}>
             <StatusBar barStyle = "default" hidden = {false} backgroundColor = "#166ED8" translucent = {true}/>
@@ -11,7 +49,7 @@ const DailyQuestHistory = ({navigation}) => {
                 
                 <View style={styles.Header}>
                     <View style={styles.FirstHeader}>
-                        <TouchableOpacity onPress = {()=>navigation.navigate('DailyQuestPages')}>
+                        <TouchableOpacity onPress = {()=>navigation.goBack()}>
                             <ArrowLeft />
                         </TouchableOpacity>
                         <Text style={{ fontSize: 16, color: 'white', fontFamily: 'ProximaNova', fontWeight: '700', letterSpacing: 1, marginLeft: 10 }}>
@@ -21,7 +59,36 @@ const DailyQuestHistory = ({navigation}) => {
                 </View>
                 <View style={styles.Panel}>
                     <View style={styles.ContentPanel}>
-                        
+                        <View>
+                            <Text style={{ color: '#1F2432' }}>Start date</Text>
+                            <Gap height={10} />
+                            <TouchableOpacity style={{ borderWidth: 1, paddingVertical: 10, paddingHorizontal: 10, alignItems: 'center', borderColor: '#A1AEB7', borderRadius: 4, flexDirection: 'row' }} onPress={showDatePicker}>
+                                <Text style={{ color: colors.TextGray }}>{startDate === '' ? 'DD MM YYYY' : Moment(startDate).format('DD MMM YYYY')}</Text>
+                                <Gap width={15} />
+                                <Calender />
+                            </TouchableOpacity>
+                            <DateTimePickerModal
+                                isVisible={isDatePickerVisible}
+                                mode="date"
+                                onConfirm={handleConfirm}
+                                onCancel={hideDatePicker}
+                            />
+                        </View>
+                        <View>
+                            <Text style={{ color: '#1F2432' }}>End date</Text>
+                            <Gap height={10} />
+                            <TouchableOpacity style={{ borderWidth: 1, paddingVertical: 10, paddingHorizontal: 10, alignItems: 'center', borderColor: '#A1AEB7', borderRadius: 4, flexDirection: 'row' }} onPress={showDatePickers}>
+                                <Text style={{ color: colors.TextGray }}>{endDate === '' ? 'DD MM YYYY' : Moment(endDate).format('DD MMM YYYY')}</Text>
+                                <Gap width={15} />
+                                <Calender />
+                            </TouchableOpacity>
+                            <DateTimePickerModal
+                                isVisible={isDatePickerVisible}
+                                mode="date"
+                                onConfirm={handleConfirms}
+                                onCancel={hideDatePickers}
+                            />
+                        </View>
                     </View>
                 </View>
                 <View style={styles.CardDQ}>
@@ -116,6 +183,7 @@ const styles = StyleSheet.create({
     },  
     ContentPanel: {
         height: '100%',
+        paddingHorizontal: 16,
         borderRadius: 8,
         justifyContent: 'space-between',
         alignItems: 'center',

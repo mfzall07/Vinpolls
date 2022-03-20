@@ -1,12 +1,27 @@
 import React, {useState} from "react";
-import {View, ScrollView, StyleSheet, Text, TouchableOpacity, Image} from "react-native";
+import {View, ScrollView, StyleSheet, Text, TouchableOpacity, } from "react-native";
 import { StatusBar } from 'react-native';
 import { ArrowLeft, IconWoman } from "../../assets";
 import { Gap } from "../../component";
+import RadioButtonRN from 'radio-buttons-react-native';
+import { colors } from "../../utils";
 
 
 const StakingDetail = ({navigation}) => {
-
+    const data = [
+        {
+            label: 'Option 1'
+        },
+        {
+            label: 'Option 2'
+        },
+        {
+            label: 'Option 3'
+        },
+        {
+            label: 'Option 4'
+        }
+        ];
     return (
         <View style={styles.container}>
             <StatusBar barStyle = "default" hidden = {false} backgroundColor = "#166ED8" translucent = {true}/>
@@ -14,7 +29,7 @@ const StakingDetail = ({navigation}) => {
                 
                 <View style={styles.Header}>
                     <View style={styles.FirstHeader}>
-                        <TouchableOpacity onPress = {()=>navigation.navigate('StakingListPages')}>
+                        <TouchableOpacity onPress = {()=>navigation.goBack()}>
                             <ArrowLeft />
                         </TouchableOpacity>
                         <Gap height={15} />
@@ -31,7 +46,7 @@ const StakingDetail = ({navigation}) => {
                     <Text style={{ fontSize: 16, fontWeight: '700', fontFamily: 'ProximaNova', color: '#1F2432'}}>
                         Data 1
                     </Text>
-                    <Text style={{ fontSize: 16, fontFamily: 'ProximaNova'}}>
+                    <Text style={{ fontSize: 16, fontFamily: 'ProximaNova', color: colors.TextGray}}>
                         Lorem ipsum, atau ringkasnya lipsum, adalah teks standar yang ditempatkan untuk mendemostrasikan elemen grafis atau presentasi visual seperti font, tipografi, dan tata letak.
                     </Text>
                 </View>
@@ -39,7 +54,16 @@ const StakingDetail = ({navigation}) => {
                 <Gap height={10} />
 
                 <View style={styles.RadioContent}>
-                    
+                <RadioButtonRN
+                    data={data}
+                    selectedBtn={(e) => console.log(e)}
+                    box={false}
+                    boxStyle={{
+                        height: 50, 
+                        borderBottomWidth: 1,
+                        borderBottomColor: '#D9DDE1',
+                     }}
+                />
                 </View>
                 <Gap height={10} />
 
@@ -112,10 +136,9 @@ const styles = StyleSheet.create({
         flexDirection: 'row'
     }, 
     RadioContent: {
-        height: 150,
+        height: 310,
         backgroundColor: '#fff',
-        paddingHorizontal: 16, 
-        paddingVertical: 16, 
+        paddingHorizontal: 16,
         justifyContent: 'center',
     },
 

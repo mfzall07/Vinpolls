@@ -3,6 +3,7 @@ import {View, ScrollView, StyleSheet, Text, TouchableOpacity, TextInput} from "r
 import { StatusBar } from 'react-native';
 import { ArrowRight, CheckBox, Dashboard, HistoryClock, IconWoman, Person, Search, StakingList, StakingListBlue, Union, UnionBlue, VinpollsIconColor } from "../../assets";
 import { Gap, Input } from "../../component";
+import { colors } from "../../utils";
 
 const StakingListPages = ({navigation}) => {
     return (
@@ -21,11 +22,23 @@ const StakingListPages = ({navigation}) => {
                     </View>
                 </View>
                 <View style={styles.Searching}>
-                    <TextInput style={styles.input} placeholder='Search Stake' />
+                    <TextInput style={styles.input} placeholder='Search Stake' placeholderTextColor={colors.TextGray} />
                     <View style={styles.icon}>
                         <Search />
                     </View>
                 </View>
+                <View style={{ flexDirection: 'row', borderBottomWidth: 1, borderBottomColor: '#A1AEB7', justifyContent: 'space-around', height: 30, alignItems: 'center' }}>
+                    <TouchableOpacity style={{ borderBottomWidth: 3, borderBottomColor: '#166ED8', height: '100%' }}>
+                        <Text style={{ color: colors.TextGray }}>All (10)</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity>
+                        <Text style={{ color: colors.TextGray }}>On Staking (6)</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity>
+                        <Text style={{ color: colors.TextGray }}>History (3)</Text>
+                    </TouchableOpacity>
+                </View>
+                <Gap height={10} />
                 <View style={styles.MainCard}>
                     <View style={styles.Card}>
                         <View style={ styles.CardHeader }>
@@ -38,7 +51,7 @@ const StakingListPages = ({navigation}) => {
                         <View style={styles.BodyHeader}>
                             <View style={{ flexDirection: 'row', alignItems: 'flex-end' }}>
                                 <Text style={{ fontWeight: '700', fontSize: 16, color: '#1F2432' }}>35.41%</Text>
-                                <Text style={{ marginLeft: 5 }}>APR</Text>
+                                <Text style={{ marginLeft: 5, color: colors.TextBlack }}>APR</Text>
                             </View>
                             <TouchableOpacity style={{ width: 80, height: 30, borderRadius: 4, backgroundColor: '#FFBB00', justifyContent: 'center', alignItems: 'center' }}  onPress = {()=>navigation.navigate('StakingDetail')}>
                                 <Text style={{ color: '#1F2432' }}>Stake Now</Text>
@@ -58,7 +71,7 @@ const StakingListPages = ({navigation}) => {
                         <View style={styles.BodyHeader}>
                             <View style={{ flexDirection: 'row', alignItems: 'flex-end' }}>
                                 <Text style={{ fontWeight: '700', fontSize: 16, color: '#1F2432' }}>35.41%</Text>
-                                <Text style={{ marginLeft: 5 }}>APR</Text>
+                                <Text style={{ marginLeft: 5, color: colors.TextBlack }}>APR</Text>
                             </View>
                             <TouchableOpacity style={{ width: 80, height: 30, borderRadius: 4, backgroundColor: '#FFBB00', justifyContent: 'center', alignItems: 'center' }}>
                                 <Text style={{ color: '#1F2432' }}>Stake Now</Text>
@@ -78,7 +91,7 @@ const StakingListPages = ({navigation}) => {
                         <View style={styles.BodyHeaderDisable}>
                             <View style={{ flexDirection: 'row', alignItems: 'flex-end' }}>
                                 <Text style={{ fontWeight: '700', fontSize: 16, color: '#1F2432' }}>35.41%</Text>
-                                <Text style={{ marginLeft: 5 }}>APR</Text>
+                                <Text style={{ marginLeft: 5, color: colors.TextBlack }}>APR</Text>
                             </View>
                             <TouchableOpacity style={{ width: 80, height: 30, borderRadius: 4, backgroundColor: '#E6E9ED', justifyContent: 'center', alignItems: 'center' }}>
                                 <Text style={{ color: '#1F2432' }}>On Staking</Text>
@@ -89,14 +102,14 @@ const StakingListPages = ({navigation}) => {
             </ScrollView>
             
             <View style={styles.BottomMenu}>
-                <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center', flexBasis: 50 }} onPress = {()=>navigation.navigate('Home')}>
+                <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center', flexBasis: 35 }} onPress = {()=>navigation.navigate('Home')}>
                     <Dashboard />
-                    <Text>Home</Text>
+                    <Text style={{ fontSize: 12, color: colors.TextGray }}>Home</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center', flexBasis: 75, borderTopWidth: 1, width: '100%', height: 60, borderTopColor: '#166ED8' }} onPress = {()=>navigation.navigate('StakingListPages')}>
+                <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center', flexBasis: 75, borderTopWidth: 1, width: '100%', height: '100%', borderTopColor: '#166ED8' }} onPress = {()=>navigation.navigate('StakingListPages')}>
                     <StakingListBlue />
-                    <Text style={{ color: '#166ED8'}}>Staking List</Text>
+                    <Text style={{ color: '#166ED8', fontSize: 12}}>Staking List</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center', bottom: 15 }} onPress = {()=>navigation.navigate('Vote')}>
@@ -104,17 +117,17 @@ const StakingListPages = ({navigation}) => {
                     <View style={{ width: 42, height: 42, backgroundColor: '#166ED8', borderRadius: 50, justifyContent: 'center', alignItems: 'center', position: 'absolute', bottom: 10}}>
                         <CheckBox />
                     </View>
-                    <Text style={{ top: 43.5, position: 'absolute'}}>Vote</Text>
+                    <Text style={{ top: 44, position: 'absolute', fontSize: 13, color: colors.TextGray }}>Vote</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center'}} onPress = {()=>navigation.navigate('DailyQuestPages')}>
                     <Union />
-                    <Text style={{ top: 3 }}>Daily Quest</Text>
+                    <Text style={{ top: 3, fontSize: 12, color: colors.TextGray }}>Daily Quest</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center' }} onPress = {()=>navigation.navigate('Account')}>
                     <Person />
-                    <Text>Account</Text>
+                    <Text style={{ fontSize: 12, color: colors.TextGray }}>Account</Text>
                 </TouchableOpacity>
             </View>
         </View>
@@ -232,7 +245,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
     },
     BottomMenu: {
-        height: 60, 
+        height: 70, 
         flexDirection: 'row', 
         paddingHorizontal: 20, 
         justifyContent: 'space-between', 

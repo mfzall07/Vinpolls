@@ -3,6 +3,7 @@ import {View, ScrollView, StyleSheet, Text, TouchableOpacity, Image} from "react
 import { StatusBar } from 'react-native';
 import { ArrowLeft, IconWoman, TKO, Vin, VinpollsIconColor } from "../../assets";
 import { Gap } from "../../component";
+import { colors } from "../../utils";
 
 const StakingDetail = ({navigation}) => {
     return (
@@ -12,7 +13,7 @@ const StakingDetail = ({navigation}) => {
                 
                 <View style={styles.Header}>
                     <View style={styles.FirstHeader}>
-                        <TouchableOpacity onPress = {()=>navigation.navigate('StakingListPages')}>
+                        <TouchableOpacity onPress = {()=>navigation.goBack()}>
                             <ArrowLeft />
                         </TouchableOpacity>
                         <Gap height={15} />
@@ -29,7 +30,7 @@ const StakingDetail = ({navigation}) => {
                     <Text style={{ fontSize: 16, fontWeight: '700', fontFamily: 'ProximaNova', color: '#1F2432'}}>
                         Information Details
                     </Text>
-                    <Text style={{ fontSize: 16, fontFamily: 'ProximaNova'}}>
+                    <Text style={{ fontSize: 16, fontFamily: 'ProximaNova', color: colors.TextGray}}>
                         Lorem ipsum, atau ringkasnya lipsum, adalah teks standar yang ditempatkan untuk mendemostrasikan elemen grafis atau presentasi visual seperti font, tipografi, dan tata letak.
                     </Text>
                     <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>

@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import {View, TextInput, StyleSheet, TouchableOpacity} from "react-native";
 import { Email, Eye, Password } from "../../../assets";
+import { colors } from "../../../utils";
 
 const InputEye = ({placeholder, type, onPress}) => {
     
@@ -18,7 +19,7 @@ const InputEye = ({placeholder, type, onPress}) => {
 
     return (
         <View>
-            <TextInput style={styles.input(borderColor)} placeholder={placeholder} onFocus={onFocus} onBlur={onBlur} secureTextEntry={hide}/>
+            <TextInput style={styles.input(borderColor)} placeholderTextColor={colors.TextGray} placeholder={placeholder} onFocus={onFocus} onBlur={onBlur} secureTextEntry={hide}/>
             <View style={styles.icon}>
                 {placeholder==='Email' && <Email/>}
                 {placeholder==='Password' && <Password/>}
@@ -38,7 +39,7 @@ const styles = StyleSheet.create({
         borderRadius: 4,
         borderColor: borderColor,
         fontWeight: "400",
-        fontSize: 16,
+        fontSize: 14,
         paddingLeft: 50,
         position: "relative",
     }),

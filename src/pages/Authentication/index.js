@@ -4,6 +4,7 @@ import { StatusBar } from 'react-native';
 import {View, Text, Image, StyleSheet, TouchableOpacity} from "react-native"
 import { VinpollsLogo } from '../../assets';
 import { Gap } from "../../component";
+import { colors } from "../../utils";
 const Authentication = ({navigation}) => {
     
  return (
@@ -38,7 +39,7 @@ const Authentication = ({navigation}) => {
             <Gap height={10}/>
 
             <View style={styles.resend}>
-                <Text>Didn’t receive verification code?</Text>
+                <Text style={{ color: colors.TextGray }}>Didn’t receive verification code?</Text>
                 <TouchableOpacity>
                     <Text style={styles.linkResend}> Resend here</Text>
                 </TouchableOpacity>

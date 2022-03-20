@@ -3,10 +3,17 @@ import {View, ScrollView, StyleSheet, Text, TouchableOpacity, Modal, Image, Text
 import { StatusBar } from 'react-native';
 import { Badge, Bell, CheckBox, Coin, DailyQuest, DashboardBlue, ImageDefault, Person, Referral, StakeAndEarn, StakingList, Tag, Union } from "../../assets";
 import { Gap, NewsCard, SurveyCard } from "../../component";
+import { colors } from "../../utils";
 
 const Home = ({navigation}) => {
     const [modalVisible, setmodalVisible] = useState(false);
     const [modalVisibleSecond, setmodalVisibleSecond] = useState(false);
+    const gotoRewards = () => {
+        navigation.navigate('RewardsHistory')
+        setmodalVisibleSecond(!modalVisibleSecond)
+        setmodalVisible(!modalVisible)
+    }
+
     return (
         <View style={styles.container}>
             <StatusBar barStyle = "default" hidden = {false} backgroundColor = "#166ED8" translucent = {true}/>
@@ -49,19 +56,19 @@ const Home = ({navigation}) => {
                             <TouchableOpacity onPress = {()=>navigation.navigate('StakingListPages')}>
                                 <View style={{ alignItems: 'center' }}>
                                     <StakeAndEarn />
-                                    <Text style={{ marginTop: 5, fontFamily: 'ProximaNova', fontSize: 13  }}>Stake & Earn</Text>
+                                    <Text style={{ marginTop: 5, fontFamily: 'ProximaNova', fontSize: 13, color: colors.TextGray }}>Stake & Earn</Text>
                                 </View>
                             </TouchableOpacity>
                             <TouchableOpacity  onPress = {()=>navigation.navigate('ReferralPages')}>
                                 <View style={{ alignItems: 'center' }}>
                                     <Referral />
-                                    <Text style={{ marginTop: 5, fontFamily: 'ProximaNova', fontSize: 13  }}>Referral</Text>
+                                    <Text style={{ marginTop: 5, fontFamily: 'ProximaNova', fontSize: 13, color: colors.TextGray  }}>Referral</Text>
                                 </View>
                             </TouchableOpacity>
                             <TouchableOpacity onPress = {()=>navigation.navigate('DailyQuestPages')}>
                                 <View style={{ alignItems: 'center' }}>
                                     <DailyQuest />
-                                    <Text style={{ marginTop: 5, fontFamily: 'ProximaNova', fontSize: 13  }}>Daily Quest</Text>
+                                    <Text style={{ marginTop: 5, fontFamily: 'ProximaNova', fontSize: 13, color: colors.TextGray  }}>Daily Quest</Text>
                                 </View>
                             </TouchableOpacity>
                         </View>
@@ -71,7 +78,7 @@ const Home = ({navigation}) => {
                 <View style={{ width: '100%', paddingVertical: 10, justifyContent: 'center', alignItems: 'center', bottom: 40 }}>
                     <View style={{ width: '90%', backgroundColor: '#EDF5FD', paddingHorizontal: 20, paddingVertical: 20, flexDirection: 'row', borderRadius: 8, justifyContent: 'space-between', alignItems: 'center' }}>
                         <Tag/>
-                        <Text style ={{ flexBasis: 200 }}>
+                        <Text style ={{ flexBasis: 200, color: colors.TextGray }}>
                             Vintoken 50,000, earn more Token by stake and doing polls
                         </Text>
                         <TouchableOpacity style={{ width: 55, height: 30, backgroundColor: '#166ED8', justifyContent: 'center', alignItems:'center', borderRadius: 4 }} onPress={()=>setmodalVisible(!modalVisible)}>
@@ -88,7 +95,7 @@ const Home = ({navigation}) => {
                         </TouchableOpacity>
                     </View>
                     <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} style={styles.scrollView}>
-                        <View style={{ height: 110, paddingHorizontal: 20, flexDirection: 'row' }}>
+                        <View style={{ width: '100%', height: 110, paddingHorizontal: 20, flexDirection: 'row' }}>
                             <NewsCard />
                             <Gap width={10} />
                             <NewsCard />
@@ -105,11 +112,11 @@ const Home = ({navigation}) => {
                     </TouchableOpacity>
                 </View>
                 <View style={{ alignItems: 'center', paddingHorizontal: 16}}>
-                    <View style={{ width: '100%', height: 150, flexWrap: 'wrap', alignContent: 'space-between', marginHorizontal: 16, marginVertical: 10 }}>
+                    <View style={{ width: '100%', height: 150, flexWrap: 'wrap', alignContent: 'space-between', marginVertical: 10 }}>
                         <SurveyCard />
                         <SurveyCard />
                     </View>
-                    <View style={{ width: '100%', height: 150, flexWrap: 'wrap', alignContent: 'space-between', marginHorizontal: 16, marginVertical: 10 }}>
+                    <View style={{ width: '100%', height: 150, flexWrap: 'wrap', alignContent: 'space-between', marginVertical: 10 }}>
                         <SurveyCard />
                         <SurveyCard />
                     </View>
@@ -118,14 +125,14 @@ const Home = ({navigation}) => {
             </ScrollView>
             
             <View style={styles.BottomMenu}>
-                <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center', flexBasis: 50, borderTopWidth: 1, width: '100%', height: 60, borderTopColor: '#166ED8'}} onPress = {()=>navigation.navigate('Home')}>
+                <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center', flexBasis: 35, borderTopWidth: 1, height: '100%', borderTopColor: '#166ED8' }} onPress = {()=>navigation.navigate('Home')}>
                     <DashboardBlue />
-                    <Text style={{ color: '#166ED8' }}>Home</Text>
+                    <Text style={{ fontSize: 12, color: '#166ED8' }}>Home</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center' }} onPress = {()=>navigation.navigate('StakingListPages')}>
+                <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center', flexBasis: 75}} onPress = {()=>navigation.navigate('StakingListPages')}>
                     <StakingList />
-                    <Text>Staking List</Text>
+                    <Text style={{ fontSize: 12, color: colors.TextGray }}>Staking List</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center', bottom: 15 }} onPress = {()=>navigation.navigate('Vote')}>
@@ -133,18 +140,17 @@ const Home = ({navigation}) => {
                     <View style={{ width: 42, height: 42, backgroundColor: '#166ED8', borderRadius: 50, justifyContent: 'center', alignItems: 'center', position: 'absolute', bottom: 10}}>
                         <CheckBox />
                     </View>
-                    <Text style={{ top: 43.5, position: 'absolute'}}>Vote</Text>
-
+                    <Text style={{ top: 44, position: 'absolute', fontSize: 13, color: colors.TextGray }}>Vote</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center' }} onPress = {()=>navigation.navigate('DailyQuestPages')}>
                     <Union />
-                    <Text style={{ top: 3 }}>Daily Quest</Text>
+                    <Text style={{ top: 3, fontSize: 12, color: colors.TextGray }}>Daily Quest</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center' }} onPress = {()=>navigation.navigate('Account')}>
+                <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center'}} onPress = {()=>navigation.navigate('Account')}>
                     <Person />
-                    <Text>Account</Text>
+                    <Text style={{ fontSize: 12, color: colors.TextGray }}>Account</Text>
                 </TouchableOpacity>
             </View>
             <Modal
@@ -160,7 +166,7 @@ const Home = ({navigation}) => {
                         <View style={{ width: 48, height: 4, backgroundColor: '#E6E9ED' }}/>
                         <Image source={ImageDefault} />
                         <View>
-                            <Text style={{ paddingHorizontal: 8, textAlign: 'center' }}>Enter the amount and send your rewards to your crypto wallet.</Text>
+                            <Text style={{ paddingHorizontal: 8, textAlign: 'center', color: colors.TextGray }}>Enter the amount and send your rewards to your crypto wallet.</Text>
                             <Gap height={10} />
                             <TextInput placeholder="Enter Amount" style={{ borderWidth: 1, borderColor: '#A1AEB7', borderRadius: 4}} />
                         </View>
@@ -182,8 +188,8 @@ const Home = ({navigation}) => {
                     <View style={styles.subModal}>
                         <View style={{ width: 48, height: 4, backgroundColor: '#E6E9ED' }}/>
                         <Image source={ImageDefault} />
-                        <Text style={{ paddingHorizontal: 8, textAlign: 'center' }}>Your withdrawal request has been successfully proceed to your wallet.</Text>
-                        <TouchableOpacity style={{ width: '100%', paddingVertical: 13, backgroundColor: '#166ED8', borderRadius: 4, alignItems: 'center' }}  onPress = {()=>navigation.navigate('RewardsHistory')}>
+                        <Text style={{ paddingHorizontal: 8, textAlign: 'center', color: colors.TextGray }}>Your withdrawal request has been successfully proceed to your wallet.</Text>
+                        <TouchableOpacity style={{ width: '100%', paddingVertical: 13, backgroundColor: '#166ED8', borderRadius: 4, alignItems: 'center' }}  onPress = {gotoRewards}>
                             <Text style={{ color:'#fff', fontSize: 18 }}>Go to history</Text>
                         </TouchableOpacity>
                     </View>
@@ -266,7 +272,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-around'
     },
     BottomMenu: {
-        height: 60, 
+        height: 70, 
         flexDirection: 'row', 
         paddingHorizontal: 20, 
         justifyContent: 'space-between', 
